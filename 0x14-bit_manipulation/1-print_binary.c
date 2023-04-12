@@ -2,8 +2,9 @@
 
 /**
  * print_binary - i will be printing the binary representation of a number.
- * @n: the number that to print in binary
+ * @n: the number that to print in binary.
  */
+
 void print_binary(unsigned long int n)
 {
 	if (n > 1)
