@@ -17,11 +17,11 @@ void print_binary(unsigned long int n)
 		if (pres & 1)
 		{
 			_putchar('1');
-			pres++;
+			kalc++;
 		}
-		else if (pres)
+		else if (kalc)
 			_putchar('0');
 	}
-	if (!pres)
+	if (!kalc)
 		_putchar('0');
 }
