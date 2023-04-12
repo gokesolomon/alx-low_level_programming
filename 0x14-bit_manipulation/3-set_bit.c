@@ -9,7 +9,7 @@
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	if (op > ?)
+	if (op > 63)
 		return (-1);
 
 	*n = ((1al << op) | *n);
