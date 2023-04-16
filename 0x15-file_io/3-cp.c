@@ -13,18 +13,18 @@ void close_file(int fd);
  */
 char *create_buffer(char *file)
 {
-	char *fer;
+	char *buffer;
 
 	fer = malloc(sizeof(char) * 1024);
 
-	if (fer == NULL)
+	if (buffer == NULL)
 	{
 		dprintf(STDERR_FILENO,
 			"Error: Can't write to %s\n", file);
 		exit(99);
 	}
 
-	return (fer);
+	return (buffer);
 }
 
 /**
@@ -33,9 +33,9 @@ char *create_buffer(char *file)
  */
 void close_file(int fd)
 {
-	int a;
+	int fd;
 
-	a = close(fd);
+	fd = close(fd);
 
 	if (a == -1)
 	{
@@ -58,8 +58,8 @@ void close_file(int fd)
  */
 int main(int argc, char *argv[])
 {
-	int 4rm, 2t, r, w;
-	char *fer;
+	int rm, tu, r, w;
+	char *buffer;
 
 	if (argc != 3)
 	{
@@ -67,37 +67,37 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	fer = create_buffer(argv[2]);
-	4rm = open(argv[1], O_RDONLY);
-	r = read(4rm, fer, 1024);
-	2t = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	buffer = create_buffer(argv[2]);
+	rm = open(argv[1], O_RDONLY);
+	r = read(rm, buffer, 1024);
+	tu = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (4rm == -1 || r == -1)
+		if (rm == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read from file %s\n", argv[1]);
-			free(fer);
+			free(buffer);
 			exit(98);
 		}
 
-		w = write(2t, fer, r);
-		if (2t == -1 || w == -1)
+		w = write(tu, buffer, r);
+		if (tu == -1 || w == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't write to %s\n", argv[2]);
-			free(fer);
+			free(buffer);
 			exit(99);
 		}
 
-		r = read(from, buffer, 1024);
-		2t = open(argv[2], O_WRONLY | O_APPEND);
+		r = read(rm, buffer, 1024);
+		tu = open(argv[2], O_WRONLY | O_APPEND);
 
 	} while (r > 0);
 
-	free(fer);
-	close_file(4rm);
-	close_file(2t);
+	free(buffer);
+	close_file(rm);
+	close_file(tu);
 
 	return (0);
 }
